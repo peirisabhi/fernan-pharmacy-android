@@ -67,6 +67,14 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.ViewHolder
 
         }
 
+        cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(listener !=null){
+                    listener.onClick(i);
+                }
+            }
+        });
     }
 
     @Override

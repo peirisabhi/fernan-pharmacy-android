@@ -29,6 +29,7 @@ import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
+import com.chathra.fernanpharmacy.adapter.DoctorAdapter;
 import com.chathra.fernanpharmacy.adapter.ProductAdapter;
 import com.chathra.fernanpharmacy.databinding.FragmentDoctorBinding;
 import com.chathra.fernanpharmacy.model.Doctor;
@@ -43,6 +44,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.chathra.fernanpharmacy.common.ComLoaders.LOADDOCTORDETAILS;
 import static com.chathra.fernanpharmacy.common.ComLoaders.LOADPRODUCTS;
 import static com.chathra.fernanpharmacy.common.Config.URL;
 
@@ -106,7 +108,7 @@ public class DoctorFragment extends Fragment {
 
 
         RequestQueue queue = Volley.newRequestQueue(requireActivity());
-        String url = URL + LOADPRODUCTS;
+        String url = URL + LOADDOCTORDETAILS;
         System.out.println(url);
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
@@ -121,32 +123,36 @@ public class DoctorFragment extends Fragment {
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject object = jsonArray.getJSONObject(i);
 
-                        Product product = new Product();
-                        product.setId(object.getLong("id"));
-                        product.setName(object.getString("name"));
-                        product.setCategory(object.getJSONObject("category").getString("category"));
-                        product.setSellingPrice(object.getDouble("sellingPrice"));
-                        product.setImg(object.getString("img"));
-                        product.setDescription(object.getString("description"));
-                        product.setBrand(object.getJSONObject("brand").getString("brand"));
+                        Doctor doctor = new Doctor();
+                        doctor.setId(object.getInt("id"));
+                        doctor.setName(object.getString("fname"));
+                        doctor.setSpecialist(object.getJSONObject("specialities").getString("specialities"));
+                        doctor.setGender(object.getString("gender"));
+                        doctor.setImage(object.getString("img"));
+                        doctor.setAbout(object.getString("about"));
+                        doctor.setMobile(object.getString("mobile"));
+                        doctor.setPrice(object.getDouble("price"));
 
-//                        productList.add(product);
+                        doctorList.add(doctor);
+
                     }
 
-//                    System.out.println("categoryList -- " + productList.size());
+                    System.out.println("doctorList -- " + doctorList.size());
 //
-//                    ProductAdapter productAdapter = new ProductAdapter(productList, requireActivity());
-//                    productRecyclerView.setAdapter(productAdapter);
-//
-//                    productAdapter.setListener(new ProductAdapter.Listener() {
-//                        @Override
-//                        public void onClick(int position) {
-//
-//                            ShopFragmentDirections.ActionNavigationShopToProductFragment toProductFragment = ShopFragmentDirections.actionNavigationShopToProductFragment(productList.get(position));
-//                            Navigation.findNavController(binding.getRoot()).navigate(toProductFragment);
-//
-//                        }
-//                    });
+                    DoctorAdapter doctorAdapter = new DoctorAdapter(doctorList, requireActivity());
+                    doctorRecycler.setAdapter(doctorAdapter);
+
+
+                    doctorAdapter.setListener(new DoctorAdapter.Listener() {
+                        @Override
+                        public void onClick(int position) {
+                            System.out.println("clicked");
+                            NavDirections navDirections = DoctorFragmentDirections.actionNavigationDoctorToDoctorProfileFragment(doctorList.get(position));
+
+                            Navigation.findNavController(binding.getRoot()).navigate(navDirections);
+
+                        }
+                    });
 
 
                 } catch (JSONException e) {

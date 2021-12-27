@@ -144,7 +144,7 @@ public class DoctorEditProfileFragment extends Fragment {
 
                     binding.editName.setText(response.getString("fname"));
                     binding.editMobile.setText(response.getString("mobile"));
-                    binding.editEmail.setText(response.getString("mobile"));
+                    binding.editEmail.setText(response.getString("email"));
                     binding.editDob.setText(response.getString("dob"));
                     binding.spinnerGender.setSelection(((ArrayAdapter<String>) binding.spinnerGender.getAdapter()).getPosition(response.getString("gender")));
                     binding.editAbout.setText(response.getString("about"));

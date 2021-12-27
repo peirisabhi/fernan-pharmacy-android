@@ -21,6 +21,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.chathra.fernanpharmacy.DoctorActivity;
 import com.chathra.fernanpharmacy.PatientActivity;
 import com.chathra.fernanpharmacy.databinding.FragmentSignUpBinding;
 import com.chathra.fernanpharmacy.db.UserStore;
@@ -166,6 +167,10 @@ public class SignUpFragment extends Fragment {
                         if (args.getType().equals("PATIENT")) {
 
                             Intent intent = new Intent(requireActivity(), PatientActivity.class);
+                            startActivity(intent);
+                            getActivity().finish();
+                        }else {
+                            Intent intent = new Intent(requireActivity(), DoctorActivity.class);
                             startActivity(intent);
                             getActivity().finish();
                         }

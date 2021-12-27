@@ -394,6 +394,7 @@
         android:layout_marginTop="12dp"
         android:layout_marginEnd="16dp"
         app:cardCornerRadius="5dp"
+        android:visibility="gone"
         app:cardElevation="2dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Doctor implements Serializable {
+    int id;
     String name;
     String email;
     String password;
@@ -301,10 +302,20 @@ public class Doctor implements Serializable {
         this.doctorDocumentId = doctorDocumentId;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+
     @Override
     public String toString() {
         return "Doctor{" +
-                "name='" + name + '\'' +
+                "id=" + id +
+                ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", mobile='" + mobile + '\'' +

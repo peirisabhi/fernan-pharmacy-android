@@ -15,7 +15,11 @@
         android:id="@+id/navigation_doctor"
         android:name="com.chathra.fernanpharmacy.ui.doctor.DoctorFragment"
         android:label="@string/title_doctor"
-        tools:layout="@layout/fragment_doctor" />
+        tools:layout="@layout/fragment_doctor" >
+        <action
+            android:id="@+id/action_navigation_doctor_to_doctorProfileFragment"
+            app:destination="@id/doctorProfileFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_appointment"
@@ -81,6 +85,27 @@
         android:name="com.chathra.fernanpharmacy.ui.support.SupportFragment"
         android:label="fragment_support"
         tools:layout="@layout/fragment_support" />
+    <fragment
+        android:id="@+id/doctorProfileFragment"
+        android:name="com.chathra.fernanpharmacy.ui.doctorProfile.DoctorProfileFragment"
+        android:label="fragment_doctor_profile"
+        tools:layout="@layout/fragment_doctor_profile" >
+        <argument
+            android:name="doctor"
+            app:argType="com.chathra.fernanpharmacy.model.Doctor" />
+        <action
+            android:id="@+id/action_doctorProfileFragment_to_bookAppointmentFragment"
+            app:destination="@id/bookAppointmentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/bookAppointmentFragment"
+        android:name="com.chathra.fernanpharmacy.ui.bookAppointment.BookAppointmentFragment"
+        android:label="fragment_book_appointment"
+        tools:layout="@layout/fragment_book_appointment" >
+        <argument
+            android:name="doctor"
+            app:argType="com.chathra.fernanpharmacy.model.Doctor" />
+    </fragment>
     <!--    <fragment-->
 <!--        android:id="@+id/doctorMapFragment"-->
 <!--        android:name="com.chathra.fernanpharmacy.ui.doctorMap.DoctorMapFragment"-->

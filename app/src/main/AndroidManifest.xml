@@ -17,7 +17,11 @@
         android:usesCleartextTraffic="true"
         android:theme="@style/Theme.FernanPharmacy">
         <activity android:name=".AuthenticationActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <activity
@@ -29,11 +33,7 @@
         <activity
             android:name=".DoctorActivity"
             android:label="@string/title_activity_doctor">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 
