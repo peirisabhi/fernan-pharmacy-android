@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.chathra.fernanpharmacy.ui.patientHome.PatientHomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_doctor"
+        android:name="com.chathra.fernanpharmacy.ui.doctor.DoctorFragment"
+        android:label="@string/title_doctor"
+        tools:layout="@layout/fragment_doctor" />
+
+    <fragment
+        android:id="@+id/navigation_appointment"
+        android:name="com.chathra.fernanpharmacy.ui.patientAppointment.PatientAppointmentFragment"
+        android:label="@string/title_appointment"
+        tools:layout="@layout/fragment_patient_appointment" />
+
+    <fragment
+        android:id="@+id/navigation_account"
+        android:name="com.chathra.fernanpharmacy.ui.patientAccount.PatientAccountFragment"
+        android:label="fragment_account"
+        tools:layout="@layout/fragment_patient_account" >
+
+        <action
+            android:id="@+id/action_navigation_account_to_doctorEditProfileFragment2"
+            app:destination="@id/doctorEditProfileFragment2" />
+        <action
+            android:id="@+id/action_navigation_account_to_supportFragment2"
+            app:destination="@id/supportFragment2" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/navigation_cart"
+        android:name="com.chathra.fernanpharmacy.ui.cart.CartFragment"
+        android:label="fragment_cart"
+        tools:layout="@layout/fragment_cart" />
+    <fragment
+        android:id="@+id/navigation_shop"
+        android:name="com.chathra.fernanpharmacy.ui.shop.ShopFragment"
+        android:label="fragment_shop"
+        tools:layout="@layout/fragment_shop" >
+        <action
+            android:id="@+id/action_navigation_shop_to_productFragment"
+            app:destination="@id/productFragment" />
+        <action
+            android:id="@+id/action_navigation_shop_to_navigation_cart"
+            app:destination="@id/navigation_cart" />
+    </fragment>
+
+
+    <!--    <fragment-->
+<!--        android:id="@+id/customerLocationFragment"-->
+<!--        android:name="com.chathra.fernanpharmacy.ui.location.CustomerLocationFragment"-->
+<!--        android:label="fragment_customer_location"-->
+<!--        tools:layout="@layout/fragment_customer_location" />-->
+    <fragment
+        android:id="@+id/productFragment"
+        android:name="com.chathra.fernanpharmacy.ui.product.ProductFragment"
+        android:label="fragment_product"
+        tools:layout="@layout/fragment_product" >
+        <argument
+            android:name="product"
+            app:argType="com.chathra.fernanpharmacy.model.Product" />
+    </fragment>
+    <fragment
+        android:id="@+id/doctorEditProfileFragment2"
+        android:name="com.chathra.fernanpharmacy.ui.doctorEditProfile.DoctorEditProfileFragment"
+        android:label="fragment_doctor_edit_profile"
+        tools:layout="@layout/fragment_doctor_edit_profile" />
+    <fragment
+        android:id="@+id/supportFragment2"
+        android:name="com.chathra.fernanpharmacy.ui.support.SupportFragment"
+        android:label="fragment_support"
+        tools:layout="@layout/fragment_support" />
+    <!--    <fragment-->
+<!--        android:id="@+id/doctorMapFragment"-->
+<!--        android:name="com.chathra.fernanpharmacy.ui.doctorMap.DoctorMapFragment"-->
+<!--        android:label="fragment_doctor_map"-->
+<!--        tools:layout="@layout/fragment_doctor_map" />-->
+<!--    <fragment-->
+<!--        android:id="@+id/doctorLocationDirectionFragment"-->
+<!--        android:name="com.chathra.fernanpharmacy.ui.doctorLocationDirection.DoctorLocationDirectionFragment"-->
+<!--        android:label="fragment_doctor_location_direction"-->
+<!--        tools:layout="@layout/fragment_doctor_location_direction" >-->
+<!--        <argument-->
+<!--            android:name="doctor"-->
+<!--            app:argType="com.chathra.fernanpharmacy.model.Doctor" />-->
+<!--    </fragment>-->
+<!--    <fragment-->
+<!--        android:id="@+id/chatMessageFragment"-->
+<!--        android:name="com.chathra.fernanpharmacy.ui.chatMessage.ChatMessageFragment"-->
+<!--        android:label="fragment_chat_message"-->
+<!--        tools:layout="@layout/fragment_chat_message" >-->
+<!--        <argument-->
+<!--            android:name="doctor"-->
+<!--            app:argType="com.chathra.fernanpharmacy.model.Doctor"-->
+<!--            app:nullable="true" />-->
+<!--        <argument-->
+<!--            android:name="doctorDocumentId"-->
+<!--            app:argType="string"-->
+<!--            app:nullable="true" />-->
+<!--        <argument-->
+<!--            android:name="chatDocumentId"-->
+<!--            app:argType="string"-->
+<!--            app:nullable="true" />-->
+<!--        <argument-->
+<!--            android:name="chat"-->
+<!--            app:argType="com.chathra.fernanpharmacy.model.Chat"-->
+<!--            app:nullable="true" />-->
+<!--    </fragment>-->
+    
+</navigation>

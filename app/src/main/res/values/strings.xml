@@ -1,0 +1,124 @@
+<resources>
+    <string name="app_name">Fernan Pharmacy</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_doctor">DoctorActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+    <string name="title_message">Messages</string>
+    <string name="title_chats">Chats</string>
+    <string name="title_shop">Shop</string>
+    <string name="title_cart">Cart</string>
+    <string name="title_doctor">Doctors</string>
+    <string name="title_appointment">Appointment</string>
+    <string name="title_account">Account</string>
+
+    <string name="full_name">Full Name</string>
+    <string name="email">E-mail Address</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="next">NEXT</string>
+
+    <string name="signUpTitle">Getting Started</string>
+    <string name="signUpSubTitle">Create an account to continue!</string>
+    <string name="alreadySignIn">Already have an account? </string>
+    <string name="signUp"> SIGN UP</string>
+
+    <string name="signInTitle">Let’s Sign You In</string>
+    <string name="signInSubTitle">Welcome back, you’ve been missed!</string>
+
+    <string name="forgotCredentials">Forgot your credentials?</string>
+    <string name="signIN">SIGN IN</string>
+    <string name="createAccount">Don\'t have an account? </string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="description">Description</string>
+    <string name="add_to_cart">Add to cart</string>
+    <string name="but_now">Buy Now</string>
+
+
+    <string-array name="gender">
+        <item>Male</item>
+        <item>Fe-Male</item>
+    </string-array>
+
+    <string-array name="country">
+        <item>Srilanka</item>
+        <!--        <item>India</item>-->
+        <!--        <item>China</item>-->
+        <!--        <item>Japan</item>-->
+        <!--        <item>Australia</item>-->
+        <!--        <item>USA</item>-->
+        <!--        <item>Pakistan</item>-->
+        <!--        <item>Bangladesh</item>-->
+    </string-array>
+
+
+    <string-array name="district">
+        <item>Colombo</item>
+        <item>Kandy</item>
+        <item>Galle</item>
+        <item>Ampara</item>
+        <item>Anuradhapura</item>
+        <item>Badulla</item>
+        <item>Batticaloa</item>
+        <item>Gampaha</item>
+        <item>Hambanthota</item>
+    </string-array>
+
+    <string-array name="city">
+        <item>Colombo 1</item>
+        <item>Colombo 2</item>
+        <item>Colombo 3</item>
+        <item>Colombo 4</item>
+        <item>Colombo 5</item>
+        <item>Colombo 6</item>
+    </string-array>
+
+    <string-array name="specialist">
+        <item>Urology</item>
+        <item>Neurology</item>
+        <item>Orthopedic</item>
+        <item>Cardiologist</item>
+        <item>Dentist</item>
+    </string-array>
+
+
+    <string-array name="video">
+        <item>Available</item>
+        <item>Not Available</item>
+    </string-array>
+
+    <string-array name="bloodGroup">
+        <item>A-</item>
+        <item>A+</item>
+        <item>B-</item>
+        <item>B+</item>
+        <item>AB-</item>
+        <item>AB+</item>
+        <item>0-</item>
+        <item>0+</item>
+    </string-array>
+
+    <string-array name="experience">
+        <item>1 Year</item>
+        <item>2 Years</item>
+        <item>3 Years</item>
+        <item>4 Years</item>
+        <item>5 Years</item>
+        <item>6 Years</item>
+        <item>7 Years</item>
+        <item>8 Years</item>
+        <item>9 Years</item>
+        <item>10 Years</item>
+        <item>11 Years</item>
+        <item>12 Years</item>
+        <item>13 Years</item>
+        <item>14 Years</item>
+        <item>15 Years Plus</item>
+    </string-array>
+
+
+</resources>
