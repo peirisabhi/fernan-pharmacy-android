@@ -363,8 +363,7 @@
                             android:ems="10"
                             android:inputType="textPersonName"
                             android:padding="6dp"
-                            android:paddingLeft="15dp"
-                            android:enabled="false"/>
+                            android:paddingLeft="15dp"/>
                     </LinearLayout>
 
                     <TextView
@@ -472,7 +471,7 @@
                             android:layout_weight="1"
                             android:background="#F4F5F7"
                             android:ems="10"
-                            android:inputType="numberDecimal"
+                            android:inputType="date"
                             android:padding="6dp"
                             android:paddingLeft="15dp" />
 
@@ -529,7 +528,7 @@
                             android:layout_weight="1"
                             android:background="#F4F5F7"
                             android:ems="10"
-                            android:inputType="numberDecimal"
+                            android:inputType="time"
                             android:padding="6dp"
                             android:paddingLeft="15dp" />
 

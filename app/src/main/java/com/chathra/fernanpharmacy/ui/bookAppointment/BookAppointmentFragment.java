@@ -116,7 +116,7 @@ public class BookAppointmentFragment extends Fragment {
         }else if (time.equals("") || time == null) {
             Toast.makeText(requireActivity(), "Please Enter Your Time!", Toast.LENGTH_SHORT).show();
         }else {
-//            hud.show();
+            hud.show();
 
             JSONObject jsonRequest = new JSONObject();
             try {
