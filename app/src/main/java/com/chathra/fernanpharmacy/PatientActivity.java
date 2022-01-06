@@ -3,6 +3,8 @@ package com.chathra.fernanpharmacy;
 import android.os.Bundle;
 
 import com.chathra.fernanpharmacy.databinding.ActivityPatientBinding;
+import com.chathra.fernanpharmacy.db.UserStore;
+import com.chathra.fernanpharmacy.model.User;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,10 +13,18 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import java.util.ArrayList;
+
 
 public class PatientActivity extends AppCompatActivity {
 
     private ActivityPatientBinding binding;
+
+
+
+    User currentUser;
+    UserStore userStore;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +44,25 @@ public class PatientActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
 //        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
+
+        if (userStore == null) {
+            userStore = new UserStore(getApplicationContext());
+        }
+
+        userStore.open();
+        ArrayList<User> users = userStore.getUsers();
+        System.out.println("users -- " + users.size());
+        if(users.size() != 0){
+            currentUser = users.get(0);
+            System.out.println(currentUser.getType() + " --- " + currentUser.getId());
+        }
+        userStore.close();
+    }
+    public User getCurrentUser() {
+        return currentUser;
     }
 
+    public void setCurrentUser(User currentUser) {
+        this.currentUser = currentUser;
+    }
 }
