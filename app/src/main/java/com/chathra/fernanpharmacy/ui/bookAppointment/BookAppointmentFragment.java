@@ -1,15 +1,22 @@
 package com.chathra.fernanpharmacy.ui.bookAppointment;
 
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
+import android.text.InputType;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -21,6 +28,7 @@ import com.android.volley.toolbox.Volley;
 import com.chathra.fernanpharmacy.DoctorActivity;
 import com.chathra.fernanpharmacy.PatientActivity;
 import com.chathra.fernanpharmacy.R;
+import com.chathra.fernanpharmacy.common.ComLib;
 import com.chathra.fernanpharmacy.databinding.FragmentBookAppointmentBinding;
 import com.chathra.fernanpharmacy.model.Doctor;
 import com.kaopiz.kprogresshud.KProgressHUD;
@@ -28,6 +36,10 @@ import com.kaopiz.kprogresshud.KProgressHUD;
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 import static com.chathra.fernanpharmacy.common.ComActions.ADDAPPOINTMENT;
 import static com.chathra.fernanpharmacy.common.ComActions.UPDATEDOCTORACCOUNT;
@@ -42,6 +54,11 @@ public class BookAppointmentFragment extends Fragment {
     PatientActivity patientActivity;
 
     KProgressHUD hud;
+
+    private DatePickerDialog datePicker;
+    private TimePickerDialog timePicker;
+
+    private EditText dateEditText, timeEditText;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -71,12 +88,21 @@ public class BookAppointmentFragment extends Fragment {
                 .setAnimationSpeed(2)
                 .setDimAmount(0.5f);
 
+        dateEditText = binding.editDate;
+        timeEditText = binding.editTime;
+
+        dateEditText.setInputType(InputType.TYPE_NULL);
+        timeEditText.setInputType(InputType.TYPE_NULL);
+
+        dateEditText.setText(ComLib.getDate(new Date()));
+//        timeEditText.setText(ComLib.get);
 
         args = BookAppointmentFragmentArgs.fromBundle(getArguments());
 
         doctor = args.getDoctor();
 
         init();
+        setDatePickers();
 
 
         binding.btnSave.setOnClickListener(new View.OnClickListener() {
@@ -85,8 +111,62 @@ public class BookAppointmentFragment extends Fragment {
                 saveAppointment();
             }
         });
+
+        binding.editDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                datePicker.show();
+            }
+        });
+
+        binding.editTime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                timePicker.show();
+            }
+        });
+
     }
-    
+
+
+    public void setDatePickers(){
+
+        int currentYear = ComLib.GetCurrentYear();
+        int currentMonth = ComLib.GetCurrentMonth() - 1;
+        int currentDay = ComLib.GetCurrentDay();
+        System.out.println("currentMonth===" + currentMonth);
+
+        if(datePicker == null){
+            datePicker = new DatePickerDialog(requireActivity(),
+                    new DatePickerDialog.OnDateSetListener() {
+                        @Override
+                        public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+
+                            Calendar calendar = Calendar.getInstance();
+                            calendar.set(year, monthOfYear, dayOfMonth);
+
+                            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                            String dateString = dateFormat.format(calendar.getTime());
+
+                            binding.editDate.setText(dateString);
+                        }
+                    }, currentYear, currentMonth, currentDay);
+        }
+
+        if(timePicker == null){
+            Calendar mcurrentTime = Calendar.getInstance();
+            int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
+            int minute = mcurrentTime.get(Calendar.MINUTE);
+            timeEditText.setText( hour + ":" + minute);
+
+            timePicker = new TimePickerDialog(requireContext(), new TimePickerDialog.OnTimeSetListener() {
+                @Override
+                public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
+                    timeEditText.setText( selectedHour + ":" + selectedMinute);
+                }
+            }, hour, minute, true);
+        }
+    }
 
 
     private void init(){
@@ -149,22 +229,26 @@ public class BookAppointmentFragment extends Fragment {
 
                     System.out.println(response);
                     Toast.makeText(requireActivity(), "Successfully Saved!", Toast.LENGTH_SHORT).show();
-//                    try {
-//                        int status = response.getInt("status");
-//                        System.out.println(status);
-//
-//                        Toast.makeText(requireActivity(), response.getString("message"), Toast.LENGTH_SHORT).show();
-//
-//                    } catch (JSONException e) {
-//                        e.printStackTrace();
-//                    }
+
+                    try {
+                        String id = response.getString("id");
+
+                        String text = "<p>Appointment booked with <b>"+name+"</b> <br/>on <b>"+date+" "+time+"</b> <br/>Reference No <b>#"+id+"</b> </p>";
+
+
+                        BookAppointmentFragmentDirections.ActionBookAppointmentFragmentToBookingSuccessFragment successFragment = BookAppointmentFragmentDirections.actionBookAppointmentFragmentToBookingSuccessFragment(text);
+                        Navigation.findNavController(binding.getRoot()).navigate(successFragment);
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
 
                 }
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
                     Log.i("Response", error.toString());
-
+                    Toast.makeText(requireActivity(), "Error!", Toast.LENGTH_SHORT).show();
                 }
             });
             queue.add(jsonObjectRequest);

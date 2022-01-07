@@ -105,6 +105,23 @@
         <argument
             android:name="doctor"
             app:argType="com.chathra.fernanpharmacy.model.Doctor" />
+        <action
+            android:id="@+id/action_bookAppointmentFragment_to_bookingSuccessFragment"
+            app:destination="@id/bookingSuccessFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/bookingSuccessFragment"
+        android:name="com.chathra.fernanpharmacy.ui.bookingSuccess.BookingSuccessFragment"
+        android:label="fragment_booking_success"
+        tools:layout="@layout/fragment_booking_success" >
+        <argument
+            android:name="text"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_bookingSuccessFragment_to_navigation_home"
+            app:destination="@id/navigation_home"
+            app:popUpTo="@id/navigation_home"
+            app:popUpToInclusive="true" />
     </fragment>
     <!--    <fragment-->
 <!--        android:id="@+id/doctorMapFragment"-->
