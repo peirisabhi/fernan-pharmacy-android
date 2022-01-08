@@ -64,6 +64,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
 
         title.setText(productList.get(position).getName());
         price.setText(ComLib.getDoubleWithCents(productList.get(position).getSellingPrice()));
+        location.setText(productList.get(position).getCategory());
 
         System.out.println("productList.get(position).getImg() ---  " + productList.get(position).getImg());
 
