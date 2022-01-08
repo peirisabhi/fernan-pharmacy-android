@@ -128,7 +128,7 @@ public class SignInFragment extends Fragment {
                             int id = response.getInt("id");
                             System.out.println(id);
 
-                            User user = new User(response.getInt("id"), response.getString("type"));
+                            User user = new User(response.getInt("id"), response.getString("type"), response.getString("name"));
 
                             userStore.open();
                             userStore.drop();

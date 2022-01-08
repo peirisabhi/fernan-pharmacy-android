@@ -155,7 +155,7 @@ public class SignUpFragment extends Fragment {
 
 //                        if (id != 0) {
 
-                            User user = new User(response.getInt("id"), args.getType());
+                            User user = new User(response.getInt("id"), args.getType(), name);
 //
                             userStore.open();
                             userStore.drop();

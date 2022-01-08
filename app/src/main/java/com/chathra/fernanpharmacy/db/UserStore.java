@@ -43,6 +43,7 @@ public class UserStore {
             ContentValues contentValues = new ContentValues();
             contentValues.put(DBHelper.ID, user.getId());
             contentValues.put(DBHelper.TYPE, user.getType());
+            contentValues.put(DBHelper.NAME, user.getName());
 
             database.insert(DBHelper.TBL_USER, null, contentValues);
 
@@ -66,7 +67,7 @@ public class UserStore {
         try{
             if(cursor.moveToFirst()){
                 do{
-                    users.add(new User(cursor.getInt(0),cursor.getString(1)));
+                    users.add(new User(cursor.getInt(0),cursor.getString(1), cursor.getString(2)));
                 }while (cursor.moveToNext());
             }
             database.setTransactionSuccessful();

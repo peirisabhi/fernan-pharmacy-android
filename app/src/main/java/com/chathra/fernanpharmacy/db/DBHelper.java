@@ -17,11 +17,13 @@ public class DBHelper extends SQLiteOpenHelper {
     //Cols Post
     public static final String ID = "id";
     public static final String TYPE = "type";
+    public static final String NAME = "user_name";
 
 
 
     private static final String USER_CREATE_TABLE = "CREATE TABLE IF NOT EXISTS " + TBL_USER +
             "(" + ID + " TEXT NOT NULL, "
+            + NAME + " TEXT, "
             + TYPE + " TEXT);";
 
     public DBHelper(@Nullable Context context) {
@@ -30,11 +32,13 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+        System.out.println(USER_CREATE_TABLE);
         db.execSQL(USER_CREATE_TABLE);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        System.out.println(USER_CREATE_TABLE);
         db.execSQL("DROP TABLE IF EXISTS " + TBL_USER);
         onCreate(db);
     }
