@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 import androidx.viewpager.widget.ViewPager;
 
 import android.view.LayoutInflater;
@@ -57,6 +58,14 @@ public class ProductFragment extends Fragment {
         product = args.getProduct();
 
         loadDetails();
+
+        binding.addToCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ProductFragmentDirections.ActionProductFragmentToCheckoutFragment toCheckoutFragment = ProductFragmentDirections.actionProductFragmentToCheckoutFragment(product);
+                Navigation.findNavController(binding.getRoot()).navigate(toCheckoutFragment);
+            }
+        });
 
     }
 

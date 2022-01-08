@@ -74,6 +74,9 @@
         <argument
             android:name="product"
             app:argType="com.chathra.fernanpharmacy.model.Product" />
+        <action
+            android:id="@+id/action_productFragment_to_checkoutFragment"
+            app:destination="@id/checkoutFragment" />
     </fragment>
     <fragment
         android:id="@+id/doctorEditProfileFragment2"
@@ -121,6 +124,33 @@
             android:id="@+id/action_bookingSuccessFragment_to_navigation_home"
             app:destination="@id/navigation_home"
             app:popUpTo="@id/navigation_home"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/checkoutFragment"
+        android:name="com.chathra.fernanpharmacy.ui.checkout.CheckoutFragment"
+        android:label="fragment_checkout"
+        tools:layout="@layout/fragment_checkout" >
+        <argument
+            android:name="product"
+            app:argType="com.chathra.fernanpharmacy.model.Product" />
+        <action
+            android:id="@+id/action_checkoutFragment_to_orderSuccessFragment"
+            app:destination="@id/orderSuccessFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/orderSuccessFragment"
+        android:name="com.chathra.fernanpharmacy.ui.orderSuccess.OrderSuccessFragment"
+        android:label="fragment_order_success"
+        tools:layout="@layout/fragment_order_success" >
+        <argument
+            android:name="text"
+            app:argType="string"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_orderSuccessFragment_to_navigation_shop"
+            app:destination="@id/navigation_shop"
+            app:popUpTo="@id/navigation_shop"
             app:popUpToInclusive="true" />
     </fragment>
     <!--    <fragment-->
