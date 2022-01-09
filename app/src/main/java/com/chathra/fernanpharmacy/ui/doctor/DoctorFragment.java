@@ -34,7 +34,6 @@ import com.chathra.fernanpharmacy.adapter.ProductAdapter;
 import com.chathra.fernanpharmacy.databinding.FragmentDoctorBinding;
 import com.chathra.fernanpharmacy.model.Doctor;
 import com.chathra.fernanpharmacy.model.Product;
-import com.chathra.fernanpharmacy.ui.shop.ShopFragmentDirections;
 import com.kaopiz.kprogresshud.KProgressHUD;
 
 import org.json.JSONArray;

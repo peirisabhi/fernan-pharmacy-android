@@ -33,9 +33,13 @@
 
     <fragment
         android:id="@+id/navigation_doctor_shop"
-        android:name="com.chathra.fernanpharmacy.ui.shop.ShopFragment"
+        android:name="com.chathra.fernanpharmacy.ui.doctorShop.DoctorShopFragment"
         android:label="fragment_shop"
-        tools:layout="@layout/fragment_shop" />
+        tools:layout="@layout/fragment_doctor_shop" >
+        <action
+            android:id="@+id/action_navigation_doctor_shop_to_doctorProductFragment"
+            app:destination="@id/doctorProductFragment" />
+    </fragment>
 
 
     <fragment
@@ -48,6 +52,44 @@
         android:name="com.chathra.fernanpharmacy.ui.doctorEditProfile.DoctorEditProfileFragment"
         android:label="fragment_doctor_edit_profile"
         tools:layout="@layout/fragment_doctor_edit_profile" />
+    <fragment
+        android:id="@+id/doctorCheckoutFragment"
+        android:name="com.chathra.fernanpharmacy.ui.doctorCheckout.DoctorCheckoutFragment"
+        android:label="fragment_doctor_checkout"
+        tools:layout="@layout/fragment_doctor_checkout" >
+        <argument
+            android:name="product"
+            app:argType="com.chathra.fernanpharmacy.model.Product" />
+        <action
+            android:id="@+id/action_doctorCheckoutFragment_to_doctorOrderSuccessFragment"
+            app:destination="@id/doctorOrderSuccessFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/doctorOrderSuccessFragment"
+        android:name="com.chathra.fernanpharmacy.ui.doctorOrderSuccess.DoctorOrderSuccessFragment"
+        android:label="fragment_doctor_order_success"
+        tools:layout="@layout/fragment_doctor_order_success" >
+        <argument
+            android:name="text"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_doctorOrderSuccessFragment_to_navigation_doctor_shop"
+            app:destination="@id/navigation_doctor_shop"
+            app:popUpTo="@id/navigation_doctor_shop"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/doctorProductFragment"
+        android:name="com.chathra.fernanpharmacy.ui.doctorProduct.DoctorProductFragment"
+        android:label="fragment_doctor_product"
+        tools:layout="@layout/fragment_doctor_product" >
+        <action
+            android:id="@+id/action_doctorProductFragment_to_doctorCheckoutFragment"
+            app:destination="@id/doctorCheckoutFragment" />
+        <argument
+            android:name="product"
+            app:argType="com.chathra.fernanpharmacy.model.Product" />
+    </fragment>
 
 
 </navigation>
