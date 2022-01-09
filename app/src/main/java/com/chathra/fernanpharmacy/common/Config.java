@@ -5,8 +5,8 @@ package com.chathra.fernanpharmacy.common;
 
 public class Config {
 
-        public static final String IP = "192.168.1.3";
-        public static final String HOST = "192.168.1.3:8888/";
+        public static final String IP = "192.168.1.4";
+        public static final String HOST = "192.168.1.4:8888/";
 
         public static final String URL = "http://" + HOST + "api/";
 

@@ -13,13 +13,13 @@
 
     <fragment
         android:id="@+id/navigation_doctor_appointment"
-        android:name="com.chathra.fernanpharmacy.ui.patientAppointment.PatientAppointmentFragment"
+        android:name="com.chathra.fernanpharmacy.ui.doctorAppointment.DoctorAppointmentFragment"
         android:label="@string/title_appointment"
-        tools:layout="@layout/fragment_patient_appointment" />
+        tools:layout="@layout/fragment_doctor_appointment" />
 
     <fragment
         android:id="@+id/navigation_doctor_account"
-        android:name="com.chathra.fernanpharmacy.ui.doctorEditProfile.DoctorEditProfileFragment"
+        android:name="com.chathra.fernanpharmacy.ui.doctorAccount.DoctorAccountFragment"
         android:label="fragment_account"
         tools:layout="@layout/fragment_doctor_account" >
         <action

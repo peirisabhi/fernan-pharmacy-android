@@ -99,7 +99,7 @@
                             android:id="@+id/mobile"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="0718807480"
+                            android:text="07xxxxxxxx"
                             android:textColor="@color/text_color"
                             android:textSize="13dp"
                             android:textStyle="normal" />

@@ -18,6 +18,8 @@ public class Appointment implements Serializable {
 
     String payment;
 
+    String patient;
+
     public Appointment() {
     }
 
@@ -31,6 +33,24 @@ public class Appointment implements Serializable {
         this.payment = payment;
     }
 
+    public Appointment(Long id, String date, String time, String doctor, String specialities, String status, String payment, String patient) {
+        this.id = id;
+        this.date = date;
+        this.time = time;
+        this.doctor = doctor;
+        this.specialities = specialities;
+        this.status = status;
+        this.payment = payment;
+        this.patient = patient;
+    }
+
+    public String getPatient() {
+        return patient;
+    }
+
+    public void setPatient(String patient) {
+        this.patient = patient;
+    }
 
     public Long getId() {
         return id;
