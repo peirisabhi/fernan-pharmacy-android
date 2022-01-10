@@ -116,11 +116,11 @@ public class SplashFragment extends Fragment {
 
         RequestQueue queue = Volley.newRequestQueue(requireActivity());
         String url = GETDATA;
-        System.out.println(url);
+//        System.out.println(url);
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                Log.i("Response", "Response is: " + response);
+//                Log.i("Response", "Response is: " + response);
                 hud.dismiss();
                 try {
 
@@ -162,11 +162,11 @@ public class SplashFragment extends Fragment {
 
         RequestQueue queue = Volley.newRequestQueue(requireActivity());
         String url = GETDATA2;
-        System.out.println(url);
+//        System.out.println(url);
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                Log.i("Response", "Response is: " + response);
+//                Log.i("Response", "Response is: " + response);
                 hud.dismiss();
                 try {
 
