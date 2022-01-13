@@ -5,6 +5,7 @@ public class ComActions {
     public static final String DOCTORSIGNUP = "doctor/save";
     public static final String PATIENTSIGNUP = "patient/save";
     public static final String UPDATEDOCTORACCOUNT = "doctor/update";
+    public static final String UPDATEPATIENTACCOUNT = "patient/update";
     public static final String ADDAPPOINTMENT = "appointment";
     public static final String ADDORDER = "orders/add-order";
     public static final String SIGNIN = "login";

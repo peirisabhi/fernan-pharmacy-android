@@ -76,8 +76,8 @@ public class PatientAccountFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                NavDirections navDirections = PatientAccountFragmentDirections.actionNavigationAccountToDoctorEditProfileFragment2();
-
+                NavDirections navDirections = PatientAccountFragmentDirections.actionNavigationAccountToPatientEditProfileFragment();
+                Navigation.findNavController(binding.getRoot()).navigate(navDirections);
             }
         });
 
